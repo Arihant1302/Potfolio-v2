@@ -305,22 +305,10 @@
         }
       });
     });
-
-    // small parallax on hero image
-    (function(){
-      const heroImg = document.querySelector('header img');
-      const heroCard = document.querySelector('header .light-glass');
-      if(!heroImg || !heroCard) return;
-      heroCard.addEventListener('mousemove', (e) => {
-        const rect = heroCard.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        heroImg.style.transform = `translate3d(${x*6}px, ${y*6}px, 0)`;
-      });
-      heroCard.addEventListener('mouseleave', () => { heroImg.style.transform = 'translate3d(0,0,0)'; });
-    })();
+  
   </script>
 
  </body>
 </html>
+
 
