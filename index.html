@@ -3,105 +3,133 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Arihant Dhole — Portfolio</title>
+  <title>Arihant Dhole — Portfolio (Light Pastel)</title>
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- GSAP + ScrollTrigger -->
+  <!-- GSAP + ScrollTrigger (for animations) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-  <!-- Favicon (local) -->
+  <!-- Favicon (local image you uploaded) -->
   <link rel="icon" type="image/png" href="/mnt/data/picofme (2).png" />
 
   <style>
     :root{
-      --bg:#0b0f12;
-      --panel: rgba(255,255,255,0.03);
-      --muted: rgba(255,255,255,0.62);
-      --accent1: #ffd54a;
-      --accent2: #ff7aa2;
-      --glass-border: rgba(255,255,255,0.06);
+      --bg-1: #fff6fb; /* light pink */
+      --bg-2: #fde8ff; /* soft lavender */
+      --card-bg: rgba(255,255,255,0.9);
+      --muted: #5b5560;
+      --accent-pink: #ffd0ea;
+      --accent-lilac: #e5d0ff;
     }
 
-    html,body{height:100%}
+    html,body { height:100%; }
     body{
       margin:0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:
-        radial-gradient(900px 350px at 10% 10%, rgba(255,117,117,0.03), transparent),
-        radial-gradient(800px 300px at 90% 80%, rgba(255,213,74,0.02), transparent),
-        var(--bg);
-      color: #e6eef8;
+      background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+      color: #111827;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
     }
 
-    /* Glass panel */
-    .glass {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(8px);
+    .light-glass {
+      background: var(--card-bg);
+      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: 0 8px 30px rgba(16,24,40,0.06);
+      border-radius: 16px;
+      backdrop-filter: blur(6px);
     }
 
-    /* Hover micro-interaction */
     .card-hover {
       transition: transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s, border-color .22s;
       will-change: transform;
     }
-    .card-hover:hover {
-      transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 20px 50px rgba(2,6,23,0.6), 0 6px 18px rgba(0,0,0,0.45);
-      border-color: rgba(255,255,255,0.09);
-    }
+    .card-hover:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 18px 40px rgba(16,24,40,0.09); }
 
     .muted { color: var(--muted); }
-    .section-title { font-weight: 600; letter-spacing:-0.02em; color: #f8fafc; }
+    .section-title { font-weight: 600; letter-spacing:-0.02em; color: #0f1724; }
 
-    /* smaller metric cards */
-    .metric {
-      min-width: 88px;
-      padding: 0.6rem 0.9rem;
-      border-radius: 12px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border: 1px solid rgba(255,255,255,0.04);
-      text-align:center;
-    }
+    /* small metric card */
+    .metric { min-width: 78px; padding: .5rem .85rem; border-radius: 10px; background: linear-gradient(180deg, #fff 0%, #fffefc 100%); border: 1px solid rgba(0,0,0,0.04); text-align:center; }
 
-    /* responsive tweak */
+    /* responsive tweaks */
     @media (max-width: 980px) {
       .desktop-grid { grid-template-columns: 1fr; }
-      .hero-left { order: 2; }
-      .hero-right { order: 1; display:flex; gap:12px; }
     }
+
+    /* accessible focus style */
+    :focus { outline: 3px solid rgba(255,208,234,0.7); outline-offset: 3px; }
   </style>
 </head>
 
 <body>
+  <main class="max-w-6xl mx-auto px-6 py-10">
 
-  <main class="max-w-7xl mx-auto px-6 py-12">
+<!-- Floating Social Dock (Left Side) -->
+<div class="fixed left-6 top-1/2 -translate-y-1/2 flex flex-col gap-5 z-50">
+
+    <!-- LinkedIn -->
+    <a href="https://linkedin.com/in/arihant1302" target="_blank"
+       class="w-12 h-12 rounded-xl bg-white shadow-md flex items-center justify-center 
+              hover:shadow-lg hover:scale-110 transition-all duration-300 
+              border border-pink-200">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@9/icons/linkedin.svg"
+             class="w-6 h-6 opacity-80" />
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://github.com/arihant1302" target="_blank"
+       class="w-12 h-12 rounded-xl bg-white shadow-md flex items-center justify-center 
+              hover:shadow-lg hover:scale-110 transition-all duration-300 
+              border border-pink-200">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@9/icons/github.svg"
+             class="w-6 h-6 opacity-80" />
+    </a>
+
+    <!-- Email -->
+    <a href="mailto:arihantdhole2@gmail.com"
+       class="w-12 h-12 rounded-xl bg-white shadow-md flex items-center justify-center
+              hover:shadow-lg hover:scale-110 transition-all duration-300 
+              border border-pink-200">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@9/icons/gmail.svg"
+             class="w-6 h-6 opacity-80" />
+    </a>
+
+    <!-- Resume Download -->
+    <a href="https://github.com/Arihant1302/Potfolio-v2/blob/main/Arihant_Dhole_Resume.pdf"
+       download
+       class="w-12 h-12 rounded-xl bg-pink-500 text-white shadow-md flex items-center justify-center
+              hover:bg-pink-600 hover:shadow-[0_0_20px_#ff8fcf80] hover:scale-110 
+              transition-all duration-300 border border-pink-200">
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@9/icons/readthedocs.svg"
+             class="w-6 h-6 opacity-90 invert" />
+    </a>
+
+</div>
 
     <!-- HERO -->
-    <header class="mb-10 grid grid-cols-12 gap-6 items-center">
+    <header class="mb-8 grid grid-cols-12 gap-6 items-center" aria-labelledby="hero-title">
 
-      <!-- Hero Card (only info + image) -->
-      <div class="col-span-12 lg:col-span-7 glass rounded-3xl p-6 lg:p-8 card-hover" data-animate>
+      <!-- Hero Card (only info + profile photo) -->
+      <div id="hero-card" class="col-span-12 lg:col-span-7 light-glass p-6 lg:p-8 card-hover" data-animate>
         <div class="flex items-center gap-5">
           <div class="flex-shrink-0">
-            <div class="w-28 h-28 rounded-2xl overflow-hidden ring-1 ring-white/6 shadow-lg">
-              <img src="/mnt/data/picofme (2).png" alt="Arihant Dhole" class="w-full h-full object-cover"/>
+            <div class="w-28 h-28 rounded-2xl overflow-hidden ring-1 ring-black/6 shadow-sm" aria-hidden="true">
+              <img src="https://github.com/Arihant1302/Potfolio-v2/blob/main/profile.png" alt="Arihant Dhole" class="w-full h-full object-cover"/>
             </div>
           </div>
 
           <div>
-            <h1 class="text-3xl lg:text-4xl font-extrabold leading-tight">Arihant Dhole</h1>
+            <h1 id="hero-title" class="text-3xl lg:text-4xl font-extrabold leading-tight">Arihant Dhole</h1>
             <p class="mt-2 muted max-w-xl">
-              IT Support Specialist • Automation enthusiast • 2.7+ years delivering SLA-first support, KB-driven efficiency and lightweight automations that save hours.
+              IT Support Specialist • Automation enthusiast • 2.7+ years delivering SLA-first support,
+              KB-driven efficiency and lightweight automations that save hours.
             </p>
 
-            <div class="mt-4 flex gap-3 items-center">
-              <!-- intentionally removed buttons as requested -->
+            <div class="mt-4 flex gap-3 items-center" aria-hidden="false">
               <div class="metric">
                 <div class="text-lg font-semibold">100+</div>
                 <div class="text-xs muted">Tickets / wk</div>
@@ -119,36 +147,33 @@
         </div>
       </div>
 
-      <!-- Compact / smaller metrics (stacked on right) -->
+      <!-- Compact highlights (right) -->
       <div class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-4">
-        <div class="glass rounded-2xl p-4 card-hover text-center">
+        <div class="light-glass p-4 card-hover text-center">
           <div class="text-sm muted">Knowledge</div>
           <div class="mt-2 font-semibold">15+ KBs</div>
         </div>
-
-        <div class="glass rounded-2xl p-4 card-hover text-center">
+        <div class="light-glass p-4 card-hover text-center">
           <div class="text-sm muted">Mentoring</div>
           <div class="mt-2 font-semibold">5+ Agents</div>
         </div>
 
-        <div class="glass rounded-2xl p-4 card-hover text-center">
+        <div class="light-glass p-4 card-hover text-center">
           <div class="text-sm muted">Recognition</div>
           <div class="mt-2 font-semibold">Propeller</div>
         </div>
-
-        <div class="glass rounded-2xl p-4 card-hover text-center">
+        <div class="light-glass p-4 card-hover text-center">
           <div class="text-sm muted">Automation</div>
           <div class="mt-2 font-semibold">Python & Flows</div>
         </div>
       </div>
-
     </header>
 
-    <!-- GRID CONTENT -->
-    <section class="grid grid-cols-12 gap-6">
+    <!-- GRID: Experience / Projects / Education / Skills -->
+    <section class="grid grid-cols-12 gap-6 mb-8">
 
-      <!-- Experience (left large column) -->
-      <article class="col-span-12 xl:col-span-7 glass rounded-3xl p-6 card-hover" data-animate>
+      <!-- Experience -->
+      <article class="col-span-12 xl:col-span-7 light-glass p-6 card-hover" data-animate>
         <div class="flex items-start justify-between">
           <div>
             <h3 class="section-title text-2xl">Experience</h3>
@@ -158,30 +183,28 @@
         </div>
 
         <div class="mt-6 grid gap-4">
-          <!-- NES -->
-          <div class="p-4 rounded-2xl bg-white/3 border border-white/6 flex items-start gap-4 card-hover" data-animate>
-            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-yellow-400 to-pink-400 rounded-lg flex items-center justify-center text-black font-semibold">N</div>
+          <div class="p-4 rounded-2xl bg-white/60 border border-black/4 flex items-start gap-4 card-hover" data-animate>
+            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#ffd6ea] to-[#e9d6ff] rounded-lg flex items-center justify-center font-semibold">N</div>
             <div>
               <div class="font-semibold">Technical Support Representative — NES</div>
               <div class="muted text-sm">Aug 2024 — Present • Hyderabad</div>
-              <ul class="mt-2 text-sm text-gray-100 space-y-1">
-                <li>• Resolved 100+ global tickets weekly with 98% SLA adherence.</li>
-                <li>• Improved routing & reduced response time; +20% CSAT.</li>
-                <li>• Trained new agents and created KBs & mock-calls.</li>
+              <ul class="mt-2 text-sm text-gray-800 list-disc pl-5 space-y-1">
+                <li>Resolved 100+ global tickets weekly with 98% SLA adherence.</li>
+                <li>Improved routing & reduced response time; +20% CSAT.</li>
+                <li>Trained new agents and created KBs & mock-calls.</li>
               </ul>
             </div>
           </div>
 
-          <!-- Capgemini -->
-          <div class="p-4 rounded-2xl bg-white/3 border border-white/6 flex items-start gap-4 card-hover" data-animate>
-            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center text-white font-semibold">C</div>
+          <div class="p-4 rounded-2xl bg-white/60 border border-black/4 flex items-start gap-4 card-hover" data-animate>
+            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#cfd6ff] to-[#ffdff3] rounded-lg flex items-center justify-center font-semibold">C</div>
             <div>
               <div class="font-semibold">Software Analyst — Capgemini</div>
               <div class="muted text-sm">Nov 2022 — Oct 2024 • Bangalore</div>
-              <ul class="mt-2 text-sm text-gray-100 space-y-1">
-                <li>• Resolved 100+ monthly tickets with 98% SLA.</li>
-                <li>• Authored 15+ KB articles; reduced resolution time by 30%.</li>
-                <li>• Built dashboards to track SLA, AHT & escalations.</li>
+              <ul class="mt-2 text-sm text-gray-800 list-disc pl-5 space-y-1">
+                <li>Resolved 100+ monthly tickets with 98% SLA.</li>
+                <li>Authored 15+ KB articles; reduced resolution time by 30%.</li>
+                <li>Built dashboards to track SLA, AHT & escalations.</li>
               </ul>
             </div>
           </div>
@@ -190,42 +213,25 @@
 
       <!-- Right column (Projects / Education / Skills) -->
       <aside class="col-span-12 xl:col-span-5 flex flex-col gap-6">
-      
-        <!-- Skills -->
-        <div class="glass rounded-3xl p-6 card-hover" data-animate>
-          <div class="flex items-center justify-between">
-            <h4 class="section-title text-lg">Skills</h4>
-            <div class="text-sm muted">Toolbox</div>
-          </div>
-
-          <div class="mt-4 grid grid-cols-3 gap-2 text-sm">
-            <div class="px-3 py-2 rounded-lg bg-white/6 text-center">ServiceNow</div>
-            <div class="px-3 py-2 rounded-lg bg-white/6 text-center">Python</div>
-            <div class="px-3 py-2 rounded-lg bg-white/6 text-center">Power Automate</div>
-            <div class="px-3 py-2 rounded-lg bg-white/6 text-center">SQL</div>
-            <div class="px-3 py-2 rounded-lg bg-white/6 text-center">Windows / Mac</div>
-            <div class="px-3 py-2 rounded-lg bg-white/6 text-center">Troubleshooting</div>
-          </div>
-        </div>
 
         <!-- Projects -->
-        <div class="glass rounded-3xl p-6 card-hover" data-animate>
+        <div class="light-glass rounded-3xl p-6 card-hover" data-animate>
           <div class="flex items-center justify-between">
             <h4 class="section-title text-lg">Projects</h4>
             <div class="text-sm muted">Selected</div>
           </div>
 
           <div class="mt-4 grid gap-3">
-            <div class="p-3 rounded-2xl bg-white/6 flex items-start gap-3 card-hover" data-animate>
-              <div class="w-10 h-10 rounded-lg bg-white/8 flex items-center justify-center font-semibold">A</div>
+            <div class="p-3 rounded-2xl bg-white/70 flex items-start gap-3 card-hover" data-animate>
+              <div class="w-10 h-10 rounded-lg bg-white/90 flex items-center justify-center font-semibold">A</div>
               <div>
                 <div class="font-medium">School Ops Automation</div>
                 <div class="muted text-sm">Google Forms + Apps Script — saved 10+ hours/week</div>
               </div>
             </div>
 
-            <div class="p-3 rounded-2xl bg-white/6 flex items-start gap-3 card-hover" data-animate>
-              <div class="w-10 h-10 rounded-lg bg-white/8 flex items-center justify-center font-semibold">P</div>
+            <div class="p-3 rounded-2xl bg-white/70 flex items-start gap-3 card-hover" data-animate>
+              <div class="w-10 h-10 rounded-lg bg-white/90 flex items-center justify-center font-semibold">P</div>
               <div>
                 <div class="font-medium">PDF → Word Automation</div>
                 <div class="muted text-sm">Python batch conversion — ~90% faster</div>
@@ -235,7 +241,7 @@
         </div>
 
         <!-- Education -->
-        <div class="glass rounded-3xl p-6 card-hover" data-animate>
+        <div class="light-glass rounded-3xl p-6 card-hover" data-animate>
           <div class="flex items-center justify-between">
             <h4 class="section-title text-lg">Education</h4>
             <div class="text-sm muted">Academic</div>
@@ -253,20 +259,33 @@
           </div>
         </div>
 
-        
+        <!-- Skills -->
+        <div class="light-glass rounded-3xl p-6 card-hover" data-animate>
+          <div class="flex items-center justify-between">
+            <h4 class="section-title text-lg">Skills</h4>
+            <div class="text-sm muted">Toolbox</div>
+          </div>
+
+          <div class="mt-4 grid grid-cols-3 gap-2 text-sm">
+            <div class="px-3 py-2 rounded-lg bg-white/90 text-center">ServiceNow</div>
+            <div class="px-3 py-2 rounded-lg bg-white/90 text-center">Python</div>
+            <div class="px-3 py-2 rounded-lg bg-white/90 text-center">Power Automate</div>
+            <div class="px-3 py-2 rounded-lg bg-white/90 text-center">SQL</div>
+            <div class="px-3 py-2 rounded-lg bg-white/90 text-center">Windows / Mac</div>
+            <div class="px-3 py-2 rounded-lg bg-white/90 text-center">Troubleshooting</div>
+          </div>
+        </div>
 
       </aside>
     </section>
 
-    <!-- Contact / footer -->
-    <footer class="mt-10 text-center muted text-sm" data-animate>
-      <div>📧 <a href="mailto:arihantdhole2@gmail.com" class="text-yellow-300 hover:underline">arihantdhole2@gmail.com</a> • 📱 +91 9347903947</div>
-      <div class="mt-2">© 2025 Arihant Dhole — Built with Tailwind & GSAP</div>
+   
+          <!-- Footer -->
+    <footer class="text-center muted text-sm mt-6">
+      © 2025 Arihant Dhole — Built with Tailwind & GSAP
     </footer>
-
   </main>
-
-  <!-- GSAP Scroll-triggered animations (stagger + subtle offset) -->
+<!-- GSAP Scroll-triggered animations (stagger + subtle offset) -->
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
@@ -290,7 +309,7 @@
     // small parallax on hero image
     (function(){
       const heroImg = document.querySelector('header img');
-      const heroCard = document.querySelector('header .glass');
+      const heroCard = document.querySelector('header .light-glass');
       if(!heroImg || !heroCard) return;
       heroCard.addEventListener('mousemove', (e) => {
         const rect = heroCard.getBoundingClientRect();
@@ -301,5 +320,7 @@
       heroCard.addEventListener('mouseleave', () => { heroImg.style.transform = 'translate3d(0,0,0)'; });
     })();
   </script>
-</body>
+
+ </body>
 </html>
+
