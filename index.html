@@ -62,133 +62,228 @@
 
     /* accessible focus style */
     :focus { outline: 3px solid rgba(255,208,234,0.7); outline-offset: 3px; }
+
+    /* Mobile social dock fix */
+    @media (max-width: 768px) {
+      .social-dock {
+        position: fixed;
+        left: 0.75rem;
+        top: auto;
+        bottom: 1rem;
+        flex-direction: row;
+        gap: 0.5rem;
+      }
+      
+      .social-dock .group {
+        position: relative;
+      }
+
+      .social-dock .tooltip {
+        display: none;
+      }
+
+      #socialToggle {
+        display: flex;
+      }
+
+      #socialLinks {
+        position: fixed;
+        left: 0.75rem;
+        bottom: 5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 0.5rem;
+        border-radius: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        box-shadow: 0 8px 30px rgba(16, 24, 40, 0.1);
+      }
+
+      #socialLinks.hidden {
+        display: none;
+      }
+
+      #socialLinks a {
+        width: 40px !important;
+        height: 40px !important;
+      }
+
+      #socialLinks img {
+        width: 18px !important;
+        height: 18px !important;
+      }
+    }
+
+    @media (min-width: 769px) {
+      #socialToggle {
+        display: none;
+      }
+
+      #socialLinks {
+        display: flex !important;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <main class="max-w-6xl mx-auto px-6 py-10">
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
 
-<!-- Floating Social Dock (Left Side) -->
-<div class="fixed left-6 top-1/2 -translate-y-1/2 flex flex-col gap-5 z-50">
+<!-- Floating Social Dock (Left Side / Bottom on Mobile) -->
+<div class="social-dock fixed left-6 top-1/2 -translate-y-1/2 flex flex-col gap-5 z-50 md:flex-col md:top-1/2 md:-translate-y-1/2">
 
-    <!-- LinkedIn -->
-    <a href="https://linkedin.com/in/arihant1302" target="_blank"
-       class="w-12 h-12 rounded-xl bg-white shadow-md flex items-center justify-center 
-              hover:shadow-lg hover:scale-110 transition-all duration-300 
-              border border-pink-200">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@9/icons/linkedin.svg"
-             class="w-6 h-6 opacity-80" />
-    </a>
+    <!-- Mobile Menu Toggle Button -->
+    <button id="socialToggle" class="w-12 h-12 rounded-xl bg-pink-500 text-white shadow-md hover:shadow-lg hover:scale-110 transition-all duration-300 border border-pink-200">
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
 
-    <!-- GitHub -->
-    <a href="https://github.com/arihant1302" target="_blank"
-       class="w-12 h-12 rounded-xl bg-white shadow-md flex items-center justify-center 
-              hover:shadow-lg hover:scale-110 transition-all duration-300 
-              border border-pink-200">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@9/icons/github.svg"
-             class="w-6 h-6 opacity-80" />
-    </a>
+    <!-- Social Links Container -->
+    <div id="socialLinks" class="hidden flex-col gap-5">
+      <!-- LinkedIn -->
+      <div class="group relative">
+        <a href="https://linkedin.com/in/arihant1302" target="_blank"
+           class="w-12 h-12 rounded-xl bg-white shadow-md flex items-center justify-center 
+                  hover:shadow-lg hover:scale-110 transition-all duration-300 
+                  border border-pink-200">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@9/icons/linkedin.svg"
+                 class="w-6 h-6 opacity-80" />
+        </a>
+        <div class="tooltip absolute left-16 md:left-16 bottom-auto md:bottom-auto top-1/2 md:top-1/2 -translate-y-1/2 md:-translate-y-1/2 bg-gray-800 text-white text-xs 
+                    rounded-lg px-3 py-2 whitespace-nowrap opacity-0 group-hover:opacity-100 
+                    transition-opacity duration-300 pointer-events-none">
+          Let's connect
+        </div>
+      </div>
 
-    <!-- Email -->
-    <a href="mailto:arihantdhole2@gmail.com"
-       class="w-12 h-12 rounded-xl bg-white shadow-md flex items-center justify-center
-              hover:shadow-lg hover:scale-110 transition-all duration-300 
-              border border-pink-200">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@9/icons/gmail.svg"
-             class="w-6 h-6 opacity-80" />
-    </a>
+      <!-- GitHub -->
+      <div class="group relative">
+        <a href="https://github.com/arihant1302" target="_blank"
+           class="w-12 h-12 rounded-xl bg-white shadow-md flex items-center justify-center 
+                  hover:shadow-lg hover:scale-110 transition-all duration-300 
+                  border border-pink-200">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@9/icons/github.svg"
+                 class="w-6 h-6 opacity-80" />
+        </a>
+        <div class="tooltip absolute left-16 md:left-16 bottom-auto md:bottom-auto top-1/2 md:top-1/2 -translate-y-1/2 md:-translate-y-1/2 bg-gray-800 text-white text-xs 
+                    rounded-lg px-3 py-2 whitespace-nowrap opacity-0 group-hover:opacity-100 
+                    transition-opacity duration-300 pointer-events-none">
+          View my projects
+        </div>
+      </div>
 
-    <!-- Resume Download -->
-    <a href="./Arihant_Dhole_Resume.pdf"
-       download
-       class="w-12 h-12 rounded-xl bg-pink-500 text-white shadow-md flex items-center justify-center
-              hover:bg-pink-600 hover:shadow-[0_0_20px_#ff8fcf80] hover:scale-110 
-              transition-all duration-300 border border-pink-200">
-        <img src="https://cdn.jsdelivr.net/npm/simple-icons@9/icons/readthedocs.svg"
-             class="w-6 h-6 opacity-90 invert" />
-    </a>
+      <!-- Email -->
+      <div class="group relative">
+        <a href="mailto:arihantdhole2@gmail.com"
+           class="w-12 h-12 rounded-xl bg-white shadow-md flex items-center justify-center
+                  hover:shadow-lg hover:scale-110 transition-all duration-300 
+                  border border-pink-200">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@9/icons/gmail.svg"
+                 class="w-6 h-6 opacity-80" />
+        </a>
+        <div class="tooltip absolute left-16 md:left-16 bottom-auto md:bottom-auto top-1/2 md:top-1/2 -translate-y-1/2 md:-translate-y-1/2 bg-gray-800 text-white text-xs 
+                    rounded-lg px-3 py-2 whitespace-nowrap opacity-0 group-hover:opacity-100 
+                    transition-opacity duration-300 pointer-events-none">
+          Let's connect
+        </div>
+      </div>
+
+      <!-- Resume Download -->
+      <div class="group relative">
+        <a href="./Arihant_Dhole_Resume.pdf"
+           download
+           class="w-12 h-12 rounded-xl bg-pink-500 text-white shadow-md flex items-center justify-center
+                  hover:bg-pink-600 hover:shadow-[0_0_20px_#ff8fcf80] hover:scale-110 
+                  transition-all duration-300 border border-pink-200">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@9/icons/readthedocs.svg"
+                 class="w-6 h-6 opacity-90 invert" />
+        </a>
+        <div class="tooltip absolute left-16 md:left-16 bottom-auto md:bottom-auto top-1/2 md:top-1/2 -translate-y-1/2 md:-translate-y-1/2 bg-gray-800 text-white text-xs 
+                    rounded-lg px-3 py-2 whitespace-nowrap opacity-0 group-hover:opacity-100 
+                    transition-opacity duration-300 pointer-events-none">
+          Click to download
+        </div>
+      </div>
+    </div>
 
 </div>
 
     <!-- HERO -->
-    <header class="mb-8 grid grid-cols-12 gap-6 items-center" aria-labelledby="hero-title">
+    <header class="mb-8 grid grid-cols-12 gap-4 sm:gap-6 items-center" aria-labelledby="hero-title">
 
       <!-- Hero Card (only info + profile photo) -->
-      <div id="hero-card" class="col-span-12 lg:col-span-7 light-glass p-6 lg:p-8 card-hover" data-animate>
-        <div class="flex items-center gap-5">
+      <div id="hero-card" class="col-span-12 lg:col-span-7 light-glass p-4 sm:p-6 lg:p-8 card-hover" data-animate>
+        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-5">
           <div class="flex-shrink-0">
-            <div class="w-28 h-28 rounded-2xl overflow-hidden ring-1 ring-black/6 shadow-sm" aria-hidden="true">
+            <div class="w-32 sm:w-48 h-32 sm:h-48 rounded-2xl overflow-hidden ring-1 ring-black/6 shadow-sm" aria-hidden="true">
               <img src="./profile.png" alt="Arihant Dhole" class="w-full h-full object-cover"/>
             </div>
           </div>
 
           <div>
-            <h1 id="hero-title" class="text-3xl lg:text-4xl font-extrabold leading-tight">Arihant Dhole</h1>
-            <p class="mt-2 muted max-w-xl">
+            <h1 id="hero-title" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight">Arihant Dhole</h1>
+            <p class="mt-2 muted text-sm sm:text-base max-w-xl">
               IT Support Specialist • Automation enthusiast • 2.7+ years delivering SLA-first support,
               KB-driven efficiency and lightweight automations that save hours.
             </p>
 
-            <div class="mt-4 flex gap-3 items-center" aria-hidden="false">
-              <div class="metric">
-                <div class="text-lg font-semibold">100+</div>
+            <div class="mt-4 flex gap-2 sm:gap-3 items-center flex-wrap" aria-hidden="false">
+              <div class="metric text-xs sm:text-sm">
+                <div class="text-lg sm:text-xl font-semibold">100+</div>
                 <div class="text-xs muted">Tickets / wk</div>
               </div>
-              <div class="metric">
-                <div class="text-lg font-semibold">98%</div>
+              <div class="metric text-xs sm:text-sm">
+                <div class="text-lg sm:text-xl font-semibold">98%</div>
                 <div class="text-xs muted">SLA</div>
               </div>
-              <div class="metric">
-                <div class="text-lg font-semibold">20%</div>
-                <div class="text-xs muted">CSAT ↑</div>
-              </div>
-            </div>
+               </div>
           </div>
         </div>
       </div>
 
       <!-- Compact highlights (right) -->
-      <div class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-4">
-        <div class="light-glass p-4 card-hover text-center">
-          <div class="text-sm muted">Knowledge</div>
-          <div class="mt-2 font-semibold">15+ KBs</div>
+      <div class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-3 sm:gap-4">
+        <div class="light-glass p-3 sm:p-4 card-hover text-center">
+          <div class="text-xs sm:text-sm muted">Knowledge</div>
+          <div class="mt-2 font-semibold text-base sm:text-lg">15+ KBs</div>
         </div>
-        <div class="light-glass p-4 card-hover text-center">
-          <div class="text-sm muted">Mentoring</div>
-          <div class="mt-2 font-semibold">5+ Agents</div>
+        <div class="light-glass p-3 sm:p-4 card-hover text-center">
+          <div class="text-xs sm:text-sm muted">Mentoring</div>
+          <div class="mt-2 font-semibold text-base sm:text-lg">5+ Agents</div>
         </div>
 
-        <div class="light-glass p-4 card-hover text-center">
-          <div class="text-sm muted">Recognition</div>
-          <div class="mt-2 font-semibold">Propeller</div>
+        <div class="light-glass p-3 sm:p-4 card-hover text-center">
+          <div class="text-xs sm:text-sm muted">Recognition</div>
+          <div class="mt-2 font-semibold text-base sm:text-lg">Propeller</div>
         </div>
-        <div class="light-glass p-4 card-hover text-center">
-          <div class="text-sm muted">Automation</div>
-          <div class="mt-2 font-semibold">Python & Flows</div>
+        <div class="light-glass p-3 sm:p-4 card-hover text-center">
+          <div class="text-xs sm:text-sm muted">Automation</div>
+          <div class="mt-2 font-semibold text-base sm:text-lg">Python & Flows</div>
         </div>
       </div>
     </header>
 
     <!-- GRID: Experience / Projects / Education / Skills -->
-    <section class="grid grid-cols-12 gap-6 mb-8">
+    <section class="grid grid-cols-12 gap-4 sm:gap-6 mb-8">
 
       <!-- Experience -->
-      <article class="col-span-12 xl:col-span-7 light-glass p-6 card-hover" data-animate>
-        <div class="flex items-start justify-between">
+      <article class="col-span-12 xl:col-span-7 light-glass p-4 sm:p-6 card-hover" data-animate>
+        <div class="flex flex-col sm:flex-row items-start sm:items-start justify-between gap-2">
           <div>
-            <h3 class="section-title text-2xl">Experience</h3>
-            <p class="muted mt-2">Incident management, SLA ownership, automation and team enablement.</p>
+            <h3 class="section-title text-xl sm:text-2xl">Experience</h3>
+            <p class="muted mt-2 text-sm">Incident management, SLA ownership, automation and team enablement.</p>
           </div>
-          <div class="text-sm muted">2.7 yrs</div>
+          <div class="text-xs sm:text-sm muted flex-shrink-0">2.7 yrs</div>
         </div>
 
         <div class="mt-6 grid gap-4">
-          <div class="p-4 rounded-2xl bg-white/60 border border-black/4 flex items-start gap-4 card-hover" data-animate>
-            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#ffd6ea] to-[#e9d6ff] rounded-lg flex items-center justify-center font-semibold">N</div>
-            <div>
-              <div class="font-semibold">Technical Support Representative — NES</div>
-              <div class="muted text-sm">Aug 2024 — Present • Hyderabad</div>
-              <ul class="mt-2 text-sm text-gray-800 list-disc pl-5 space-y-1">
+          <div class="p-3 sm:p-4 rounded-2xl bg-white/60 border border-black/4 flex items-start gap-3 sm:gap-4 card-hover" data-animate>
+            <div class="flex-shrink-0 w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-br from-[#ffd6ea] to-[#e9d6ff] rounded-lg flex items-center justify-center font-semibold text-sm sm:text-base">N</div>
+            <div class="min-w-0">
+              <div class="font-semibold text-sm sm:text-base">Technical Support Representative — NES</div>
+              <div class="muted text-xs sm:text-sm">Aug 2024 — Present • Hyderabad</div>
+              <ul class="mt-2 text-xs sm:text-sm text-gray-800 list-disc pl-5 space-y-1">
                 <li>Resolved 100+ global tickets weekly with 98% SLA adherence.</li>
                 <li>Improved routing & reduced response time; +20% CSAT.</li>
                 <li>Trained new agents and created KBs & mock-calls.</li>
@@ -196,12 +291,12 @@
             </div>
           </div>
 
-          <div class="p-4 rounded-2xl bg-white/60 border border-black/4 flex items-start gap-4 card-hover" data-animate>
-            <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#cfd6ff] to-[#ffdff3] rounded-lg flex items-center justify-center font-semibold">C</div>
-            <div>
-              <div class="font-semibold">Software Analyst — Capgemini</div>
-              <div class="muted text-sm">Nov 2022 — Oct 2024 • Bangalore</div>
-              <ul class="mt-2 text-sm text-gray-800 list-disc pl-5 space-y-1">
+          <div class="p-3 sm:p-4 rounded-2xl bg-white/60 border border-black/4 flex items-start gap-3 sm:gap-4 card-hover" data-animate>
+            <div class="flex-shrink-0 w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-br from-[#cfd6ff] to-[#ffdff3] rounded-lg flex items-center justify-center font-semibold text-sm sm:text-base">C</div>
+            <div class="min-w-0">
+              <div class="font-semibold text-sm sm:text-base">Software Analyst — Capgemini</div>
+              <div class="muted text-xs sm:text-sm">Nov 2022 — Oct 2024 • Bangalore</div>
+              <ul class="mt-2 text-xs sm:text-sm text-gray-800 list-disc pl-5 space-y-1">
                 <li>Resolved 100+ monthly tickets with 98% SLA.</li>
                 <li>Authored 15+ KB articles; reduced resolution time by 30%.</li>
                 <li>Built dashboards to track SLA, AHT & escalations.</li>
@@ -212,79 +307,184 @@
       </article>
 
       <!-- Right column (Projects / Education / Skills) -->
-      <aside class="col-span-12 xl:col-span-5 flex flex-col gap-6">
+      <aside class="col-span-12 xl:col-span-5 flex flex-col gap-4 sm:gap-6">
+
+        <!-- Skills -->
+        <div class="light-glass rounded-3xl p-4 sm:p-6 card-hover" data-animate>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+            <h4 class="section-title text-lg sm:text-xl">Skills</h4>
+            <div class="text-xs sm:text-sm muted">Toolbox</div>
+          </div>
+
+          <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs sm:text-sm">
+            <!-- ServiceNow -->
+            <div class="px-2 sm:px-3 py-2 rounded-lg bg-white/90 text-center flex items-center justify-center gap-2 card-hover">
+              <svg class="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="3" width="18" height="18" rx="2" fill="#ffd0ea" stroke="#ff99cc" stroke-width="1.5"/>
+                <circle cx="12" cy="12" r="6" fill="none" stroke="#ff99cc" stroke-width="1.5"/>
+                <circle cx="12" cy="12" r="2" fill="#ff99cc"/>
+              </svg>
+              <span class="hidden sm:inline">ServiceNow</span>
+            </div>
+
+            <!-- Microsoft Office -->
+            <div class="px-2 sm:px-3 py-2 rounded-lg bg-white/90 text-center flex items-center justify-center gap-2 card-hover">
+              <svg class="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="2" width="8" height="8" fill="#e5d0ff" stroke="#d0a8ff" stroke-width="1.5" rx="1"/>
+                <rect x="14" y="2" width="8" height="8" fill="#ffd0ea" stroke="#ff99cc" stroke-width="1.5" rx="1"/>
+                <rect x="2" y="14" width="8" height="8" fill="#ffd0ea" stroke="#ff99cc" stroke-width="1.5" rx="1"/>
+                <rect x="14" y="14" width="8" height="8" fill="#e5d0ff" stroke="#d0a8ff" stroke-width="1.5" rx="1"/>
+              </svg>
+              <span class="hidden sm:inline">Office</span>
+            </div>
+
+            <!-- Python -->
+            <div class="px-2 sm:px-3 py-2 rounded-lg bg-white/90 text-center flex items-center justify-center gap-2 card-hover">
+              <svg class="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="#ffd0ea" stroke="#ff99cc" stroke-width="1.5"/>
+                <path d="M12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 12c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" fill="#ff99cc"/>
+              </svg>
+              <span class="hidden sm:inline">Python</span>
+            </div>
+
+            <!-- Power Automate -->
+            <div class="px-2 sm:px-3 py-2 rounded-lg bg-white/90 text-center flex items-center justify-center gap-2 card-hover">
+              <svg class="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12l3-3v6l-3-3zm9 0l3-3v6l-3-3zm9 0l3-3v6l-3-3z" fill="#e5d0ff" stroke="#d0a8ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="hidden sm:inline">Power Automate</span>
+            </div>
+            <!-- Windows/Mac -->
+            <div class="px-2 sm:px-3 py-2 rounded-lg bg-white/90 text-center flex items-center justify-center gap-2 card-hover">
+              <svg class="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="3" width="20" height="14" rx="2" fill="none" stroke="#e5d0ff" stroke-width="1.5"/>
+                <path d="M2 17h20M7 20h10" stroke="#d0a8ff" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              <span class="hidden sm:inline">Windows/Mac</span>
+            </div>
+
+          </div>
+        </div>
 
         <!-- Projects -->
-        <div class="light-glass rounded-3xl p-6 card-hover" data-animate>
-          <div class="flex items-center justify-between">
-            <h4 class="section-title text-lg">Projects</h4>
-            <div class="text-sm muted">Selected</div>
+        <div class="light-glass rounded-3xl p-4 sm:p-6 card-hover" data-animate>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+            <h4 class="section-title text-lg sm:text-xl">Projects</h4>
+            <div class="text-xs sm:text-sm muted">Selected</div>
           </div>
 
           <div class="mt-4 grid gap-3">
-            <div class="p-3 rounded-2xl bg-white/70 flex items-start gap-3 card-hover" data-animate>
-              <div class="w-10 h-10 rounded-lg bg-white/90 flex items-center justify-center font-semibold">A</div>
-              <div>
-                <div class="font-medium">School Ops Automation</div>
-                <div class="muted text-sm">Google Forms + Apps Script — saved 10+ hours/week</div>
+            <div class="p-3 rounded-2xl bg-white/70 flex items-start gap-2 sm:gap-3 card-hover group relative" data-animate>
+              <div class="flex-shrink-0 w-8 sm:w-10 h-8 sm:h-10 rounded-lg bg-white/90 flex items-center justify-center font-semibold text-sm sm:text-base">A</div>
+              <div class="min-w-0 flex-1">
+                <div class="font-medium text-sm sm:text-base">School Ops Automation</div>
+                <div class="muted text-xs sm:text-sm">Google Forms + Apps Script — saved 10+ hours/week</div>
+              </div>
+
+              <!-- LinkedIn Post Preview Tooltip (Top) -->
+              <div class="absolute bottom-full mb-2 sm:mb-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 
+                          transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto z-50"
+                   data-tooltip>
+                <div class="bg-white shadow-2xl rounded-lg border border-pink-200 p-3 sm:p-4 w-72 sm:w-80">
+                  <div class="text-xs font-semibold text-gray-600 mb-3">LinkedIn Post</div>
+                  
+                  <!-- LinkedIn Post Card -->
+                  <div class="bg-gradient-to-b from-white to-gray-50 border border-gray-200 rounded-lg p-3 sm:p-4 space-y-3">
+                    <div class="flex items-center gap-2 sm:gap-3">
+                      <div class="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-600"></div>
+                      <div class="min-w-0 flex-1">
+                        <div class="text-xs sm:text-sm font-semibold text-gray-800 truncate">Arihant Dhole</div>
+                        <div class="text-xs text-gray-500">IT Support Specialist</div>
+                      </div>
+                    </div>
+                    
+                    <p class="text-xs sm:text-sm text-gray-700 leading-relaxed break-words">
+                      Excited to share a project that streamlined school operations! 🎓 Using Google Forms + Apps Script, I automated repetitive tasks taking 10+ hours weekly.
+                    </p>
+                    
+                    <div class="flex gap-2 text-xs text-gray-500 pt-2 border-t border-gray-200">
+                      <span>👍 245</span>
+                      <span>💬 18</span>
+                      <a href="https://www.linkedin.com/posts/arihant1302_edtech-automation-googlesheets-activity-7310687110066315264-n6ol?utm_source=share&utm_medium=member_desktop" 
+                         target="_blank"
+                         rel="noopener noreferrer"
+                         class="ml-auto text-blue-600 hover:underline font-medium cursor-pointer">
+                        View →
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Arrow pointing down -->
+                  <div class="absolute -bottom-2 left-1/2 -translate-x-1/2">
+                    <div class="w-3 h-3 bg-white border-r border-b border-pink-200 rotate-45"></div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="p-3 rounded-2xl bg-white/70 flex items-start gap-3 card-hover" data-animate>
-              <div class="w-10 h-10 rounded-lg bg-white/90 flex items-center justify-center font-semibold">P</div>
-              <div>
-                <div class="font-medium">PDF → Word Automation</div>
-                <div class="muted text-sm">Python batch conversion — ~90% faster</div>
+            <div class="p-3 rounded-2xl bg-white/70 flex items-start gap-2 sm:gap-3 card-hover" data-animate>
+              <div class="flex-shrink-0 w-8 sm:w-10 h-8 sm:h-10 rounded-lg bg-white/90 flex items-center justify-center font-semibold text-sm sm:text-base">P</div>
+              <div class="min-w-0 flex-1">
+                <div class="font-medium text-sm sm:text-base">PDF → Word Automation</div>
+                <div class="muted text-xs sm:text-sm">Python batch conversion — ~90% faster</div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Education -->
-        <div class="light-glass rounded-3xl p-6 card-hover" data-animate>
-          <div class="flex items-center justify-between">
-            <h4 class="section-title text-lg">Education</h4>
-            <div class="text-sm muted">Academic</div>
+        <div class="light-glass rounded-3xl p-4 sm:p-6 card-hover" data-animate>
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+            <h4 class="section-title text-lg sm:text-xl">Education</h4>
+            <div class="text-xs sm:text-sm muted">Academic</div>
           </div>
 
           <div class="mt-4 text-sm">
-            <div class="font-medium">B.Sc — Osmania University</div>
-            <div class="muted text-sm">Electronics, Computers & Math — 8.5 CGPA (2022)</div>
+            <div class="font-medium text-sm sm:text-base">B.Sc — Osmania University</div>
+            <div class="muted text-xs sm:text-sm">Electronics, Computers & Math — 8.5 CGPA (2022)</div>
 
-            <div class="mt-3 font-medium">Courses</div>
-            <ul class="muted text-sm mt-1 space-y-1">
+            <div class="mt-3 font-medium text-sm sm:text-base">Courses</div>
+            <ul class="muted text-xs sm:text-sm mt-1 space-y-1">
               <li>Prompt Engineering for ChatGPT — Coursera (2025)</li>
               <li>Power Automate & SharePoint — Udemy (2024)</li>
             </ul>
           </div>
         </div>
-
-        <!-- Skills -->
-        <div class="light-glass rounded-3xl p-6 card-hover" data-animate>
-          <div class="flex items-center justify-between">
-            <h4 class="section-title text-lg">Skills</h4>
-            <div class="text-sm muted">Toolbox</div>
-          </div>
-
-          <div class="mt-4 grid grid-cols-3 gap-2 text-sm">
-            <div class="px-3 py-2 rounded-lg bg-white/90 text-center">ServiceNow</div>
-            <div class="px-3 py-2 rounded-lg bg-white/90 text-center">Python</div>
-            <div class="px-3 py-2 rounded-lg bg-white/90 text-center">Power Automate</div>
-            <div class="px-3 py-2 rounded-lg bg-white/90 text-center">SQL</div>
-            <div class="px-3 py-2 rounded-lg bg-white/90 text-center">Windows / Mac</div>
-            <div class="px-3 py-2 rounded-lg bg-white/90 text-center">Troubleshooting</div>
-          </div>
-        </div>
+           
 
       </aside>
     </section>
 
    
           <!-- Footer -->
-    <footer class="text-center muted text-sm mt-6">
+    <footer class="text-center muted text-xs sm:text-sm mt-6">
       © 2025 Arihant Dhole — Built with Tailwind & GSAP
     </footer>
   </main>
+
+  <!-- Resume Toast (MOVE THIS BEFORE THE SCRIPT) -->
+  <div id="resumeToast"
+       class="fixed left-4 sm:left-24 bottom-6 sm:top-[62%] bg-white shadow-xl border border-pink-200 
+              rounded-xl p-2 sm:p-3 w-56 sm:w-64 flex items-start gap-2 z-[9999]
+              opacity-0 translate-x-3 sm:translate-x-3 pointer-events-none transition-all duration-300">
+
+      <!-- Arrow -->
+      <div class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 hidden sm:block">
+          <div class="w-3 h-3 bg-white border border-pink-200 rotate-45"></div>
+      </div>
+
+      <div class="flex-1">
+          <p class="text-xs sm:text-sm font-semibold text-gray-800 leading-tight">
+             👈 Click to download resume 
+          </p>
+      </div>
+
+      <button id="closeToast"
+              class="flex-shrink-0 text-gray-400 hover:text-gray-600 text-lg leading-none font-bold">
+          ×
+      </button>
+  </div>
+
 <!-- GSAP Scroll-triggered animations (stagger + subtle offset) -->
   <script>
     gsap.registerPlugin(ScrollTrigger);
@@ -305,10 +505,45 @@
         }
       });
     });
-  
+
+   
+    document.addEventListener("DOMContentLoaded", () => {
+      const toast = document.getElementById("resumeToast");
+      const closeBtn = document.getElementById("closeToast");
+
+      // Show toast after 1.2 seconds
+      setTimeout(() => {
+        toast.classList.remove("opacity-0", "translate-x-3", "pointer-events-none");
+        toast.classList.add("opacity-100", "translate-x-0", "pointer-events-auto");
+      }, 1200);
+
+      // Close on "X"
+      closeBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toast.classList.add("opacity-0", "translate-x-3", "pointer-events-none");
+        toast.classList.remove("opacity-100", "translate-x-0", "pointer-events-auto");
+      });
+
+      // Auto-hide after 5 seconds
+      setTimeout(() => {
+        toast.classList.add("opacity-0", "translate-x-3", "pointer-events-none");
+        toast.classList.remove("opacity-100", "translate-x-0", "pointer-events-auto");
+      }, 6200);
+    });
+
+    // Toggle social menu on mobile
+    document.getElementById('socialToggle').addEventListener('click', () => {
+      const links = document.getElementById('socialLinks');
+      links.classList.toggle('hidden');
+    });
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('#socialLinks a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('socialLinks').classList.add('hidden');
+      });
+    });
   </script>
 
- </body>
+</body>
 </html>
-
-
