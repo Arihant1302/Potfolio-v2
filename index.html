@@ -17,12 +17,12 @@
 
   <style>
     :root{
-      --bg-1: #fff6fb; /* light pink */
-      --bg-2: #fde8ff; /* soft lavender */
+      --bg-1: #fffbf0; /* light yellow */
+      --bg-2: #fff8e6; /* soft cream */
       --card-bg: rgba(255,255,255,0.9);
       --muted: #5b5560;
-      --accent-pink: #ffd0ea;
-      --accent-lilac: #e5d0ff;
+      --accent-yellow: #ffeaa7;
+      --accent-cream: #fff0d9;
     }
 
     html,body { height:100%; }
@@ -67,11 +67,13 @@
     @media (max-width: 768px) {
       .social-dock {
         position: fixed;
-        left: 0.75rem;
-        top: auto;
-        bottom: 1rem;
+        left: 0.75rem !important;
+        top: 1rem !important;
+        bottom: auto;
         flex-direction: row;
         gap: 0.5rem;
+        transform: none !important; /* cancel -translate-y-1/2 from HTML classes */
+        z-index: 60;
       }
       
       .social-dock .group {
@@ -84,12 +86,19 @@
 
       #socialToggle {
         display: flex;
+        width: 44px;
+        height: 44px;
+      }
+
+      #socialToggle svg {
+        width: 20px;
+        height: 20px;
       }
 
       #socialLinks {
         position: fixed;
         left: 0.75rem;
-        bottom: 5rem;
+        top: calc(1rem + 44px + 0.5rem);
         flex-direction: column;
         gap: 0.5rem;
         background: rgba(255, 255, 255, 0.95);
@@ -106,6 +115,7 @@
       #socialLinks a {
         width: 40px !important;
         height: 40px !important;
+        border-color: #fcd34d !important;
       }
 
       #socialLinks img {
@@ -133,7 +143,7 @@
 <div class="social-dock fixed left-6 top-1/2 -translate-y-1/2 flex flex-col gap-5 z-50 md:flex-col md:top-1/2 md:-translate-y-1/2">
 
     <!-- Mobile Menu Toggle Button -->
-    <button id="socialToggle" class="w-12 h-12 rounded-xl bg-pink-500 text-white shadow-md hover:shadow-lg hover:scale-110 transition-all duration-300 border border-pink-200">
+    <button id="socialToggle" class="w-12 h-12 rounded-xl bg-yellow-400 text-white shadow-md hover:shadow-lg hover:scale-110 transition-all duration-300 border border-yellow-300">
       <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
       </svg>
@@ -146,7 +156,7 @@
         <a href="https://linkedin.com/in/arihant1302" target="_blank"
            class="w-12 h-12 rounded-xl bg-white shadow-md flex items-center justify-center 
                   hover:shadow-lg hover:scale-110 transition-all duration-300 
-                  border border-pink-200">
+                  border border-yellow-200">
             <img src="https://cdn.jsdelivr.net/npm/simple-icons@9/icons/linkedin.svg"
                  class="w-6 h-6 opacity-80" />
         </a>
@@ -162,7 +172,7 @@
         <a href="https://github.com/arihant1302" target="_blank"
            class="w-12 h-12 rounded-xl bg-white shadow-md flex items-center justify-center 
                   hover:shadow-lg hover:scale-110 transition-all duration-300 
-                  border border-pink-200">
+                  border border-yellow-200">
             <img src="https://cdn.jsdelivr.net/npm/simple-icons@9/icons/github.svg"
                  class="w-6 h-6 opacity-80" />
         </a>
@@ -178,7 +188,7 @@
         <a href="mailto:arihantdhole2@gmail.com"
            class="w-12 h-12 rounded-xl bg-white shadow-md flex items-center justify-center
                   hover:shadow-lg hover:scale-110 transition-all duration-300 
-                  border border-pink-200">
+                  border border-yellow-200">
             <img src="https://cdn.jsdelivr.net/npm/simple-icons@9/icons/gmail.svg"
                  class="w-6 h-6 opacity-80" />
         </a>
@@ -193,9 +203,9 @@
       <div class="group relative">
         <a href="./Arihant_Dhole_Resume.pdf"
            download
-           class="w-12 h-12 rounded-xl bg-pink-500 text-white shadow-md flex items-center justify-center
-                  hover:bg-pink-600 hover:shadow-[0_0_20px_#ff8fcf80] hover:scale-110 
-                  transition-all duration-300 border border-pink-200">
+           class="w-12 h-12 rounded-xl bg-yellow-400 text-white shadow-md flex items-center justify-center
+                  hover:bg-yellow-500 hover:shadow-[0_0_20px_#ffd93d80] hover:scale-110 
+                  transition-all duration-300 border border-yellow-300">
             <img src="https://cdn.jsdelivr.net/npm/simple-icons@9/icons/readthedocs.svg"
                  class="w-6 h-6 opacity-90 invert" />
         </a>
@@ -224,7 +234,7 @@
           <div>
             <h1 id="hero-title" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight">Arihant Dhole</h1>
             <p class="mt-2 muted text-sm sm:text-base max-w-xl">
-              IT Support Specialist • Automation enthusiast • 2.7+ years delivering SLA-first support,
+              IT Support Specialist • Automation enthusiast • 2+ years delivering SLA-first support,
               KB-driven efficiency and lightweight automations that save hours.
             </p>
 
@@ -265,7 +275,7 @@
     </header>
 
     <!-- GRID: Experience / Projects / Education / Skills -->
-    <section class="grid grid-cols-12 gap-4 sm:gap-6 mb-8">
+    <section class="grid grid-cols-12 gap-2 sm:gap-6 mb-8">
 
       <!-- Experience -->
       <article class="col-span-12 xl:col-span-7 light-glass p-4 sm:p-6 card-hover" data-animate>
@@ -274,7 +284,7 @@
             <h3 class="section-title text-xl sm:text-2xl">Experience</h3>
             <p class="muted mt-2 text-sm">Incident management, SLA ownership, automation and team enablement.</p>
           </div>
-          <div class="text-xs sm:text-sm muted flex-shrink-0">2.7 yrs</div>
+          <div class="text-xs sm:text-sm muted flex-shrink-0">3 yrs</div>
         </div>
 
         <div class="mt-6 grid gap-4">
@@ -282,11 +292,12 @@
             <div class="flex-shrink-0 w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-br from-[#ffd6ea] to-[#e9d6ff] rounded-lg flex items-center justify-center font-semibold text-sm sm:text-base">N</div>
             <div class="min-w-0">
               <div class="font-semibold text-sm sm:text-base">Technical Support Representative — NES</div>
-              <div class="muted text-xs sm:text-sm">Aug 2024 — Present • Hyderabad</div>
+              <div class="muted text-xs sm:text-sm">Aug 2024 — Nov 2025 • Hyderabad</div>
               <ul class="mt-2 text-xs sm:text-sm text-gray-800 list-disc pl-5 space-y-1">
                 <li>Resolved 100+ global tickets weekly with 98% SLA adherence.</li>
                 <li>Improved routing & reduced response time; +20% CSAT.</li>
-                <li>Trained new agents and created KBs & mock-calls.</li>
+                <li>Trained new agents and conducted mock-calls.</li>
+                <li>Led Fun Fridays & cultural events, turning workdays into team-building opportunities.</li>
               </ul>
             </div>
           </div>
@@ -299,7 +310,8 @@
               <ul class="mt-2 text-xs sm:text-sm text-gray-800 list-disc pl-5 space-y-1">
                 <li>Resolved 100+ monthly tickets with 98% SLA.</li>
                 <li>Authored 15+ KB articles; reduced resolution time by 30%.</li>
-                <li>Built dashboards to track SLA, AHT & escalations.</li>
+                <li>Trained & mentored new agents while building dashboards to track SLA, escalations, and efficiency.</li>
+                <li>Awarded Capgemini’s “Propeller Award” for exceptional ownership and client support.</li>
               </ul>
             </div>
           </div>
@@ -403,8 +415,8 @@
                     </p>
                     
                     <div class="flex gap-2 text-xs text-gray-500 pt-2 border-t border-gray-200">
-                      <span>👍 245</span>
-                      <span>💬 18</span>
+                      <span>👍 24</span>
+                      <span>💬 1</span>
                       <a href="https://www.linkedin.com/posts/arihant1302_edtech-automation-googlesheets-activity-7310687110066315264-n6ol?utm_source=share&utm_medium=member_desktop" 
                          target="_blank"
                          rel="noopener noreferrer"
@@ -464,23 +476,23 @@
 
   <!-- Resume Toast (MOVE THIS BEFORE THE SCRIPT) -->
   <div id="resumeToast"
-       class="fixed left-4 sm:left-24 bottom-6 sm:top-[62%] bg-white shadow-xl border border-pink-200 
-              rounded-xl p-2 sm:p-3 w-56 sm:w-64 flex items-start gap-2 z-[9999]
+       class="fixed left-4 sm:left-24 bottom-6 sm:bottom-auto sm:top-[calc(50%+60px)] bg-white shadow-xl border border-yellow-200 
+              rounded-lg p-1 sm:p-1.5 w-48 sm:w-56 flex items-center gap-1 z-[9999]
               opacity-0 translate-x-3 sm:translate-x-3 pointer-events-none transition-all duration-300">
 
       <!-- Arrow -->
-      <div class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 hidden sm:block">
-          <div class="w-3 h-3 bg-white border border-pink-200 rotate-45"></div>
+      <div class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1.5 hidden sm:block">
+          <div class="w-2 h-2 bg-white border border-yellow-200 rotate-45"></div>
       </div>
 
-      <div class="flex-1">
-          <p class="text-xs sm:text-sm font-semibold text-gray-800 leading-tight">
-             👈 Click to download resume 
+      <div class="flex-1 min-w-0">
+          <p class="text-xs sm:text-xs font-semibold text-gray-800 leading-tight whitespace-nowrap">
+             👈 Download resume 
           </p>
       </div>
 
       <button id="closeToast"
-              class="flex-shrink-0 text-gray-400 hover:text-gray-600 text-lg leading-none font-bold">
+              class="flex-shrink-0 text-gray-400 hover:text-gray-600 text-sm leading-none font-bold ml-1">
           ×
       </button>
   </div>
