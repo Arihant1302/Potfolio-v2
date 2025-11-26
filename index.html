@@ -220,9 +220,9 @@
 </div>
 
     <!-- HERO -->
-    <header class="mb-8 grid grid-cols-12 gap-4 sm:gap-6 items-center" aria-labelledby="hero-title">
+    <header class="mb-8 grid grid-cols-12 gap-4 sm:gap-6 items-start" aria-labelledby="hero-title">
 
-      <!-- Hero Card (only info + profile photo) -->
+      <!-- Hero Card (Left) -->
       <div id="hero-card" class="col-span-12 lg:col-span-7 light-glass p-4 sm:p-6 lg:p-8 card-hover" data-animate>
         <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-5">
           <div class="flex-shrink-0">
@@ -247,229 +247,285 @@
                 <div class="text-lg sm:text-xl font-semibold">98%</div>
                 <div class="text-xs muted">SLA</div>
               </div>
-               </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Compact highlights (right) -->
-      <div class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-3 sm:gap-4">
-        <div class="light-glass p-3 sm:p-4 card-hover text-center">
-          <div class="text-xs sm:text-sm muted">Knowledge</div>
-          <div class="mt-2 font-semibold text-base sm:text-lg">15+ KBs</div>
-        </div>
-        <div class="light-glass p-3 sm:p-4 card-hover text-center">
-          <div class="text-xs sm:text-sm muted">Mentoring</div>
-          <div class="mt-2 font-semibold text-base sm:text-lg">5+ Agents</div>
+      <!-- Skills Card (Right) -->
+      <div class="col-span-12 lg:col-span-5 light-glass rounded-2xl p-4 sm:p-6 card-hover" data-animate>
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <h3 class="section-title text-lg sm:text-xl">Skills</h3>
+            <p class="text-xs sm:text-sm muted mt-1">Toolbox</p>
+          </div>
+          <span class="text-2xl sm:text-3xl">🛠️</span>
         </div>
 
-        <div class="light-glass p-3 sm:p-4 card-hover text-center">
-          <div class="text-xs sm:text-sm muted">Recognition</div>
-          <div class="mt-2 font-semibold text-base sm:text-lg">Propeller</div>
-        </div>
-        <div class="light-glass p-3 sm:p-4 card-hover text-center">
-          <div class="text-xs sm:text-sm muted">Automation</div>
-          <div class="mt-2 font-semibold text-base sm:text-lg">Python & Flows</div>
+        <div class="grid grid-cols-2 sm:grid-cols-2 gap-2 text-xs sm:text-sm">
+          <!-- ServiceNow -->
+          <div class="px-2 sm:px-3 py-2 rounded-lg bg-white/90 text-center flex flex-col items-center justify-center gap-1 card-hover">
+            <svg class="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="3" width="18" height="18" rx="2" fill="#ffeaa7" stroke="#fcd34d" stroke-width="1.5"/>
+              <circle cx="12" cy="12" r="6" fill="none" stroke="#fcd34d" stroke-width="1.5"/>
+              <circle cx="12" cy="12" r="2" fill="#fcd34d"/>
+            </svg>
+            <span class="font-medium">ServiceNow</span>
+          </div>
+
+          <!-- Microsoft Office -->
+          <div class="px-2 sm:px-3 py-2 rounded-lg bg-white/90 text-center flex flex-col items-center justify-center gap-1 card-hover">
+            <svg class="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="8" height="8" fill="#e5d0ff" stroke="#d0a8ff" stroke-width="1.5" rx="1"/>
+              <rect x="14" y="2" width="8" height="8" fill="#ffeaa7" stroke="#fcd34d" stroke-width="1.5" rx="1"/>
+              <rect x="2" y="14" width="8" height="8" fill="#ffeaa7" stroke="#fcd34d" stroke-width="1.5" rx="1"/>
+              <rect x="14" y="14" width="8" height="8" fill="#e5d0ff" stroke="#d0a8ff" stroke-width="1.5" rx="1"/>
+            </svg>
+            <span class="font-medium">Office</span>
+          </div>
+
+          <!-- Python -->
+          <div class="px-2 sm:px-3 py-2 rounded-lg bg-white/90 text-center flex flex-col items-center justify-center gap-1 card-hover">
+            <svg class="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="#ffeaa7" stroke="#fcd34d" stroke-width="1.5"/>
+              <path d="M12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 12c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" fill="#fcd34d"/>
+            </svg>
+            <span class="font-medium">Python</span>
+          </div>
+
+          <!-- Power Automate -->
+          <div class="px-2 sm:px-3 py-2 rounded-lg bg-white/90 text-center flex flex-col items-center justify-center gap-1 card-hover">
+            <svg class="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 12l3-3v6l-3-3zm9 0l3-3v6l-3-3zm9 0l3-3v6l-3-3z" fill="#e5d0ff" stroke="#d0a8ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="font-medium">Power Automate</span>
+          </div>
+
+          <!-- Windows/Mac -->
+          <div class="px-2 sm:px-3 py-2 rounded-lg bg-white/90 text-center flex flex-col items-center justify-center gap-1 card-hover">
+            <svg class="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="3" width="20" height="14" rx="2" fill="none" stroke="#e5d0ff" stroke-width="1.5"/>
+              <path d="M2 17h20M7 20h10" stroke="#d0a8ff" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span class="font-medium">Windows/Mac</span>
+          </div>
+
+          <!-- Google Forms -->
+          <div class="px-2 sm:px-3 py-2 rounded-lg bg-white/90 text-center flex flex-col items-center justify-center gap-1 card-hover">
+            <span class="text-lg">📝</span>
+            <span class="font-medium">Google Forms</span>
+          </div>
         </div>
       </div>
+
     </header>
 
-    <!-- GRID: Experience / Projects / Education / Skills -->
-    <section class="grid grid-cols-12 gap-2 sm:gap-6 mb-8">
+    <!-- MASONRY: Featured Work -->
+    <section class="mb-8">
+      <div class="mb-4">
+        <h2 class="section-title text-xl sm:text-2xl">Featured Work</h2>
+        <p class="muted text-sm sm:text-base mt-1">Projects that made an impact</p>
+      </div>
 
-      <!-- Experience -->
-      <article class="col-span-12 xl:col-span-7 light-glass p-4 sm:p-6 card-hover" data-animate>
-        <div class="flex flex-col sm:flex-row items-start sm:items-start justify-between gap-2">
-          <div>
-            <h3 class="section-title text-xl sm:text-2xl">Experience</h3>
-            <p class="muted mt-2 text-sm">Incident management, SLA ownership, automation and team enablement.</p>
+      <!-- Masonry Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 auto-rows-max">
+        
+        <!-- Card 1: School Ops (Tall) -->
+        <div class="sm:col-span-1 lg:col-span-2 lg:row-span-2 light-glass rounded-2xl p-4 sm:p-6 card-hover" data-animate>
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h3 class="font-semibold text-base sm:text-lg text-gray-900">School Operations Automation</h3>
+              <p class="text-xs sm:text-sm muted mt-1">Google Forms + Apps Script</p>
+            </div>
+            <span class="text-3xl sm:text-4xl">🎓</span>
           </div>
-          <div class="text-xs sm:text-sm muted flex-shrink-0">3 yrs</div>
-        </div>
-
-        <div class="mt-6 grid gap-4">
-          <div class="p-3 sm:p-4 rounded-2xl bg-white/60 border border-black/4 flex items-start gap-3 sm:gap-4 card-hover" data-animate>
-            <div class="flex-shrink-0 w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-br from-[#ffd6ea] to-[#e9d6ff] rounded-lg flex items-center justify-center font-semibold text-sm sm:text-base">N</div>
-            <div class="min-w-0">
-              <div class="font-semibold text-sm sm:text-base">Technical Support Representative — NES</div>
-              <div class="muted text-xs sm:text-sm">Aug 2024 — Nov 2025 • Hyderabad</div>
-              <ul class="mt-2 text-xs sm:text-sm text-gray-800 list-disc pl-5 space-y-1">
-                <li>Resolved 100+ global tickets weekly with 98% SLA adherence.</li>
-                <li>Improved routing & reduced response time; +20% CSAT.</li>
-                <li>Trained new agents and conducted mock-calls.</li>
-                <li>Led Fun Fridays & cultural events, turning workdays into team-building opportunities.</li>
-              </ul>
-            </div>
+          <p class="text-sm text-gray-700 mb-4">Automated repetitive school tasks, saving 10+ hours weekly and improving data accuracy across the entire operation.</p>
+          <div class="flex gap-2 flex-wrap">
+            <span class="px-3 py-1.5 bg-yellow-100 rounded-lg text-xs font-medium text-gray-700">Google Forms</span>
+            <span class="px-3 py-1.5 bg-yellow-100 rounded-lg text-xs font-medium text-gray-700">Apps Script</span>
+            <span class="px-3 py-1.5 bg-yellow-100 rounded-lg text-xs font-medium text-gray-700">10+ hrs/week</span>
           </div>
-
-          <div class="p-3 sm:p-4 rounded-2xl bg-white/60 border border-black/4 flex items-start gap-3 sm:gap-4 card-hover" data-animate>
-            <div class="flex-shrink-0 w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-br from-[#cfd6ff] to-[#ffdff3] rounded-lg flex items-center justify-center font-semibold text-sm sm:text-base">C</div>
-            <div class="min-w-0">
-              <div class="font-semibold text-sm sm:text-base">Software Analyst — Capgemini</div>
-              <div class="muted text-xs sm:text-sm">Nov 2022 — Oct 2024 • Bangalore</div>
-              <ul class="mt-2 text-xs sm:text-sm text-gray-800 list-disc pl-5 space-y-1">
-                <li>Resolved 100+ monthly tickets with 98% SLA.</li>
-                <li>Authored 15+ KB articles; reduced resolution time by 30%.</li>
-                <li>Trained & mentored new agents while building dashboards to track SLA, escalations, and efficiency.</li>
-                <li>Awarded Capgemini’s “Propeller Award” for exceptional ownership and client support.</li>
-              </ul>
+          <div class="mt-4 pt-4 border-t border-yellow-200/50 flex items-end justify-between">
+            <div>
+              <div class="text-2xl sm:text-3xl font-bold text-yellow-600">10+</div>
+              <div class="text-xs sm:text-sm muted">Hours saved weekly</div>
             </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Right column (Projects / Education / Skills) -->
-      <aside class="col-span-12 xl:col-span-5 flex flex-col gap-4 sm:gap-6">
-
-        <!-- Skills -->
-        <div class="light-glass rounded-3xl p-4 sm:p-6 card-hover" data-animate>
-          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-            <h4 class="section-title text-lg sm:text-xl">Skills</h4>
-            <div class="text-xs sm:text-sm muted">Toolbox</div>
-          </div>
-
-          <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs sm:text-sm">
-            <!-- ServiceNow -->
-            <div class="px-2 sm:px-3 py-2 rounded-lg bg-white/90 text-center flex flex-col sm:flex-row items-center justify-center gap-2 card-hover">
-              <svg class="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="3" y="3" width="18" height="18" rx="2" fill="#ffd0ea" stroke="#ff99cc" stroke-width="1.5"/>
-                <circle cx="12" cy="12" r="6" fill="none" stroke="#ff99cc" stroke-width="1.5"/>
-                <circle cx="12" cy="12" r="2" fill="#ff99cc"/>
-              </svg>
-              <span>ServiceNow</span>
-            </div>
-
-            <!-- Microsoft Office -->
-            <div class="px-2 sm:px-3 py-2 rounded-lg bg-white/90 text-center flex flex-col sm:flex-row items-center justify-center gap-2 card-hover">
-              <svg class="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="2" width="8" height="8" fill="#e5d0ff" stroke="#d0a8ff" stroke-width="1.5" rx="1"/>
-                <rect x="14" y="2" width="8" height="8" fill="#ffd0ea" stroke="#ff99cc" stroke-width="1.5" rx="1"/>
-                <rect x="2" y="14" width="8" height="8" fill="#ffd0ea" stroke="#ff99cc" stroke-width="1.5" rx="1"/>
-                <rect x="14" y="14" width="8" height="8" fill="#e5d0ff" stroke="#d0a8ff" stroke-width="1.5" rx="1"/>
-              </svg>
-              <span>Office</span>
-            </div>
-
-            <!-- Python -->
-            <div class="px-2 sm:px-3 py-2 rounded-lg bg-white/90 text-center flex flex-col sm:flex-row items-center justify-center gap-2 card-hover">
-              <svg class="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="#ffd0ea" stroke="#ff99cc" stroke-width="1.5"/>
-                <path d="M12 6c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 12c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" fill="#ff99cc"/>
-              </svg>
-              <span>Python</span>
-            </div>
-
-            <!-- Power Automate -->
-            <div class="px-2 sm:px-3 py-2 rounded-lg bg-white/90 text-center flex flex-col sm:flex-row items-center justify-center gap-2 card-hover">
-              <svg class="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 12l3-3v6l-3-3zm9 0l3-3v6l-3-3zm9 0l3-3v6l-3-3z" fill="#e5d0ff" stroke="#d0a8ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span>Power Automate</span>
-            </div>
-
-            <!-- Windows/Mac -->
-            <div class="px-2 sm:px-3 py-2 rounded-lg bg-white/90 text-center flex flex-col sm:flex-row items-center justify-center gap-2 card-hover">
-              <svg class="w-4 sm:w-5 h-4 sm:h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="2" y="3" width="20" height="14" rx="2" fill="none" stroke="#e5d0ff" stroke-width="1.5"/>
-                <path d="M2 17h20M7 20h10" stroke="#d0a8ff" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-              <span>Windows/Mac</span>
-            </div>
-
+            <a href="https://www.linkedin.com/posts/arihant1302_edtech-automation-googlesheets-activity-7310687110066315264-n6ol?utm_source=share&utm_medium=member_desktop" 
+               target="_blank"
+               rel="noopener noreferrer"
+               class="px-3 py-1.5 bg-yellow-400 text-white rounded-lg text-xs font-medium hover:bg-yellow-500 transition-colors">
+              View Post →
+            </a>
           </div>
         </div>
 
-        <!-- Projects -->
-        <div class="light-glass rounded-3xl p-4 sm:p-6 card-hover" data-animate>
-          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-            <h4 class="section-title text-lg sm:text-xl">Projects</h4>
-            <div class="text-xs sm:text-sm muted">Selected</div>
+        <!-- Card 2: PDF Automation -->
+        <div class="sm:col-span-1 light-glass rounded-2xl p-4 sm:p-6 card-hover" data-animate>
+          <div class="flex items-start justify-between mb-3">
+            <div>
+              <h3 class="font-semibold text-base sm:text-base text-gray-900">PDF to Word</h3>
+              <p class="text-xs muted mt-1">Python Automation</p>
+            </div>
+            <span class="text-2xl">📄</span>
           </div>
+          <p class="text-xs sm:text-sm text-gray-700 mb-3">Batch conversion script reducing manual work by 90%.</p>
+          <div class="flex gap-1.5 flex-wrap">
+            <span class="px-2 py-1 bg-purple-100 rounded text-xs font-medium text-gray-700">Python</span>
+            <span class="px-2 py-1 bg-purple-100 rounded text-xs font-medium text-gray-700">~90% faster</span>
+          </div>
+        </div>
 
-          <div class="mt-4 grid gap-3">
-            <div class="p-3 rounded-2xl bg-white/70 flex items-start gap-2 sm:gap-3 card-hover group relative" data-animate>
-              <div class="flex-shrink-0 w-8 sm:w-10 h-8 sm:h-10 rounded-lg bg-white/90 flex items-center justify-center font-semibold text-sm sm:text-base">A</div>
-              <div class="min-w-0 flex-1">
-                <div class="font-medium text-sm sm:text-base">School Ops Automation</div>
-                <div class="muted text-xs sm:text-sm">Google Forms + Apps Script — saved 10+ hours/week</div>
+        <!-- Card 3: KB Initiative -->
+        <div class="sm:col-span-1 light-glass rounded-2xl p-4 sm:p-6 card-hover" data-animate>
+          <div class="flex items-start justify-between mb-3">
+            <div>
+              <h3 class="font-semibold text-base sm:text-base text-gray-900">Knowledge Base</h3>
+              <p class="text-xs muted mt-1">Documentation</p>
+            </div>
+            <span class="text-2xl">📚</span>
+          </div>
+          <p class="text-xs sm:text-sm text-gray-700 mb-3">15+ KB articles reducing resolution time by 30%.</p>
+          <div class="flex gap-1.5 flex-wrap">
+            <span class="px-2 py-1 bg-blue-100 rounded text-xs font-medium text-gray-700">15+ Articles</span>
+            <span class="px-2 py-1 bg-blue-100 rounded text-xs font-medium text-gray-700">-30% time</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Team Mentoring -->
+        <div class="sm:col-span-2 lg:col-span-2 light-glass rounded-2xl p-4 sm:p-6 card-hover" data-animate>
+          <div class="flex items-start justify-between mb-3">
+            <div>
+              <h3 class="font-semibold text-base sm:text-lg text-gray-900">Team Mentoring & Enablement</h3>
+              <p class="text-xs sm:text-sm muted mt-1">Leadership & Training</p>
+            </div>
+            <span class="text-3xl sm:text-4xl">👥</span>
+          </div>
+          <p class="text-sm text-gray-700 mb-3">Trained 5+ agents, conducted mock-calls, and built efficiency dashboards for the team.</p>
+          <div class="flex gap-2 flex-wrap">
+            <span class="px-3 py-1.5 bg-green-100 rounded-lg text-xs font-medium text-gray-700">Mentoring</span>
+            <span class="px-3 py-1.5 bg-green-100 rounded-lg text-xs font-medium text-gray-700">5+ Agents</span>
+            <span class="px-3 py-1.5 bg-green-100 rounded-lg text-xs font-medium text-gray-700">Dashboards</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GRID: Experience / Education -->
+    <section class="grid grid-cols-12 gap-4 sm:gap-6 mb-8">
+
+      <!-- Experience Card (Left - Tall) -->
+      <div class="col-span-12 lg:col-span-6 light-glass rounded-2xl p-4 sm:p-6 card-hover" data-animate>
+        <div class="flex items-start justify-between mb-4">
+          <h3 class="section-title text-lg sm:text-xl">Experience</h3>
+          <span class="text-2xl sm:text-3xl">💼</span>
+        </div>
+        
+        <div class="space-y-4">
+          <!-- NES Card -->
+          <div class="p-4 rounded-xl bg-gradient-to-br from-yellow-50 to-yellow-100 border border-yellow-200 hover:shadow-md transition-all">
+            <div class="flex items-start justify-between mb-2">
+              <div>
+                <div class="font-semibold text-base text-gray-900">NES</div>
+                <div class="text-xs text-yellow-700">Technical Support Representative</div>
               </div>
+              <span class="text-2xl">🎯</span>
+            </div>
+            <div class="text-xs text-gray-600 mb-3">Aug 2024 — Nov 2025 • Hyderabad</div>
+            <div class="space-y-2">
+              <div class="flex gap-2 items-start">
+                <span>📞</span>
+                <span class="text-xs text-gray-800">100+ tickets/week, 98% SLA</span>
+              </div>
+              <div class="flex gap-2 items-start">
+                <span>📈</span>
+                <span class="text-xs text-gray-800">+20% CSAT improvement</span>
+              </div>
+              <div class="flex gap-2 items-start">
+                <span>👥</span>
+                <span class="text-xs text-gray-800">Team training & mentoring</span>
+              </div>
+            </div>
+          </div>
 
-              <!-- LinkedIn Post Preview Tooltip (Top) -->
-              <div class="absolute bottom-full mb-2 sm:mb-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 
-                          transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto z-50"
-                   data-tooltip>
-                <div class="bg-white shadow-2xl rounded-lg border border-pink-200 p-3 sm:p-4 w-72 sm:w-80">
-                  <div class="text-xs font-semibold text-gray-600 mb-3">LinkedIn Post</div>
-                  
-                  <!-- LinkedIn Post Card -->
-                  <div class="bg-gradient-to-b from-white to-gray-50 border border-gray-200 rounded-lg p-3 sm:p-4 space-y-3">
-                    <div class="flex items-center gap-2 sm:gap-3">
-                      <div class="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-600"></div>
-                      <div class="min-w-0 flex-1">
-                        <div class="text-xs sm:text-sm font-semibold text-gray-800 truncate">Arihant Dhole</div>
-                        <div class="text-xs text-gray-500">IT Support Specialist</div>
-                      </div>
-                    </div>
-                    
-                    <p class="text-xs sm:text-sm text-gray-700 leading-relaxed break-words">
-                      Excited to share a project that streamlined school operations! 🎓 Using Google Forms + Apps Script, I automated repetitive tasks taking 10+ hours weekly.
-                    </p>
-                    
-                    <div class="flex gap-2 text-xs text-gray-500 pt-2 border-t border-gray-200">
-                      <span>👍 24</span>
-                      <span>💬 1</span>
-                      <a href="https://www.linkedin.com/posts/arihant1302_edtech-automation-googlesheets-activity-7310687110066315264-n6ol?utm_source=share&utm_medium=member_desktop" 
-                         target="_blank"
-                         rel="noopener noreferrer"
-                         class="ml-auto text-blue-600 hover:underline font-medium cursor-pointer">
-                        View →
-                      </a>
-                    </div>
-                  </div>
+          <!-- Capgemini Card -->
+          <div class="p-4 rounded-xl bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 hover:shadow-md transition-all">
+            <div class="flex items-start justify-between mb-2">
+              <div>
+                <div class="font-semibold text-base text-gray-900">Capgemini</div>
+                <div class="text-xs text-purple-700">Software Analyst</div>
+              </div>
+              <span class="text-2xl">💼</span>
+            </div>
+            <div class="text-xs text-gray-600 mb-3">Nov 2022 — Oct 2024 • Bangalore</div>
+            <div class="space-y-2">
+              <div class="flex gap-2 items-start">
+                <span>📊</span>
+                <span class="text-xs text-gray-800">100+ monthly tickets, 98% SLA</span>
+              </div>
+              <div class="flex gap-2 items-start">
+                <span>📚</span>
+                <span class="text-xs text-gray-800">15+ KB articles, -30% time</span>
+              </div>
+              <div class="flex gap-2 items-start">
+                <span>🏆</span>
+                <span class="text-xs text-gray-800">Propeller Award winner</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-                  <!-- Arrow pointing down -->
-                  <div class="absolute -bottom-2 left-1/2 -translate-x-1/2">
-                    <div class="w-3 h-3 bg-white border-r border-b border-pink-200 rotate-45"></div>
-                  </div>
+      <!-- Education Card (Right) -->
+      <div class="col-span-12 lg:col-span-6 light-glass rounded-2xl p-4 sm:p-6 card-hover" data-animate>
+        <div class="flex items-start justify-between mb-4">
+          <h3 class="section-title text-lg sm:text-xl">Education</h3>
+          <span class="text-2xl sm:text-3xl">🎓</span>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Degree Card -->
+          <div class="p-4 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 hover:shadow-md transition-all">
+            <div class="flex gap-2 items-start">
+              <span class="text-xl">📖</span>
+              <div class="flex-1">
+                <div class="font-semibold text-base text-gray-900">B.Sc Degree</div>
+                <div class="text-xs text-blue-700 mt-1">Osmania University</div>
+                <div class="text-xs text-gray-700 mt-1">Electronics, Computers & Math</div>
+                <div class="mt-2 inline-block px-2 py-1 bg-blue-200 text-blue-900 rounded text-xs font-medium">8.5 CGPA • 2022</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certifications Card -->
+          <div class="p-4 rounded-xl bg-gradient-to-br from-green-50 to-green-100 border border-green-200 hover:shadow-md transition-all">
+            <div class="flex gap-2 items-start mb-3">
+              <span class="text-xl">🏆</span>
+              <div class="font-semibold text-base text-gray-900">Certifications</div>
+            </div>
+            <div class="space-y-2">
+              <div class="flex gap-2 items-start">
+                <span>✓</span>
+                <div>
+                  <div class="text-xs font-medium text-gray-900">Prompt Engineering for ChatGPT</div>
+                  <div class="text-xs text-green-700">Coursera (2025)</div>
+                </div>
+              </div>
+              <div class="flex gap-2 items-start">
+                <span>✓</span>
+                <div>
+                  <div class="text-xs font-medium text-gray-900">Power Automate & SharePoint</div>
+                  <div class="text-xs text-green-700">Udemy (2024)</div>
                 </div>
               </div>
             </div>
-
-            <div class="p-3 rounded-2xl bg-white/70 flex items-start gap-2 sm:gap-3 card-hover" data-animate>
-              <div class="flex-shrink-0 w-8 sm:w-10 h-8 sm:h-10 rounded-lg bg-white/90 flex items-center justify-center font-semibold text-sm sm:text-base">P</div>
-              <div class="min-w-0 flex-1">
-                <div class="font-medium text-sm sm:text-base">PDF → Word Automation</div>
-                <div class="muted text-xs sm:text-sm">Python batch conversion — ~90% faster</div>
-              </div>
-            </div>
           </div>
         </div>
+      </div>
 
-        <!-- Education -->
-        <div class="light-glass rounded-3xl p-4 sm:p-6 card-hover" data-animate>
-          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-            <h4 class="section-title text-lg sm:text-xl">Education</h4>
-            <div class="text-xs sm:text-sm muted">Academic</div>
-          </div>
-
-          <div class="mt-4 text-sm">
-            <div class="font-medium text-sm sm:text-base">B.Sc — Osmania University</div>
-            <div class="muted text-xs sm:text-sm">Electronics, Computers & Math — 8.5 CGPA (2022)</div>
-
-            <div class="mt-3 font-medium text-sm sm:text-base">Courses</div>
-            <ul class="muted text-xs sm:text-sm mt-1 space-y-1">
-              <li>Prompt Engineering for ChatGPT — Coursera (2025)</li>
-              <li>Power Automate & SharePoint — Udemy (2024)</li>
-            </ul>
-          </div>
-        </div>
-           
-
-      </aside>
     </section>
 
-   
-          <!-- Footer -->
+    <!-- Footer -->
     <footer class="text-center muted text-xs sm:text-sm mt-6">
       © 2025 Arihant Dhole — Built with Tailwind & GSAP
     </footer>
